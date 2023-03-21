@@ -9,9 +9,9 @@
 המשחק עצמו הוא משחק מחשב המתקיים בבית של הבעלים. השחקן משחק ככלב אשר נמצא בבית עם בעליו.
 מטרת השחקן היא להבריח גנבים שמגיעים לבית, לעשות צרכים בבית ומבלי להתפס על ידי הבעלים, ולגנוב אוכל מהשולחן - לעשות כמה שיותר פעולות מבלי שישמו לב תחת הזמן המוקצב.
 
+ ![image](https://user-images.githubusercontent.com/74373665/226649852-790f483a-4968-4c26-94cf-89904d0d92fe.png)
+
 ---
-
-
 ## רכיבים רשמיים
 
 ### 1. שחקנים
@@ -64,10 +64,13 @@
 תוצאת המשחק בעיקר תלויה בנסיון של השחקן לאורך המשחק. ככל שהשחקן ישחק יותר, הוא יצבור יותר נסיון ויהיה טוב יותר. 
 
 קישור למשחק ראשון: https://play.google.com/store/apps/details?id=com.SinkoBuild.DogShelterSimulator&hl=en&gl=US 
+![image](https://user-images.githubusercontent.com/74373665/226649567-5adb3886-3619-4235-975c-2eee4c514dbd.png)
 
 קישור למשחק שני: https://play.google.com/store/apps/details?id=com.chi.DogThief&hl=en&gl=US 
+![image](https://user-images.githubusercontent.com/74373665/226649663-bfcdaa3a-6aca-4a94-b5b7-71072c0a811c.png)
 
 קישור למשחק שלישי: https://play.google.com/store/apps/details?id=com.koenigz.DogPuppySimulator&hl=en&gl=US 
+![image](https://user-images.githubusercontent.com/74373665/226649724-fc7b80ab-ccc2-46be-a2f6-43585160e0df.png)
 
  מילות המפתח שחיפשנו הם: dog ,stealth ,thief, simulator
 
