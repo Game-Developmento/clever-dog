@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class foodStealing : MonoBehaviour
@@ -18,7 +19,6 @@ public class foodStealing : MonoBehaviour
             stealFood.AddCompositeBinding("2DVector").With("steal food", "<Keyboard>/space");
         }
     }
-
     void OnEnable()
     {
         stealFood.Enable();
@@ -29,9 +29,22 @@ public class foodStealing : MonoBehaviour
         stealFood.Disable();
     }
 
+    private bool checkForWin()
+    {
+        int counter = 0;
+        foreach (GameObject food in foodObjects)
+        {
+            if (!food.activeSelf)
+            {
+                counter++;
+            }
+        }
+        return counter == 2;
+    }
     void Update()
     {
-        foreach (GameObject food in foodObjects) {
+        foreach (GameObject food in foodObjects)
+        {
             if (Vector3.Distance(this.transform.position, food.transform.position) < stealingDistance)
             {
                 if (stealFood.WasPressedThisFrame() && food)
@@ -39,7 +52,10 @@ public class foodStealing : MonoBehaviour
                     food.SetActive(false);
                 }
             }
-
+        }
+        if (checkForWin())
+        {
+            SceneManager.LoadScene("Won-scene");
         }
     }
 }

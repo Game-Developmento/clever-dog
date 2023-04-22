@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class InputMover : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
     [SerializeField] InputAction moveHorizontal;
     [SerializeField] InputAction moveVertical;
 
-    private bool isBlocked = false;
+    private GameObject[] furnitures;
+    // private CharacterController controller;
+    private bool isCollidingWithFurniture = false;
 
-    public void setIsBlocked(bool value)
+    private void Start()
     {
-        this.isBlocked = value;
+        furnitures = GameObject.FindGameObjectsWithTag("Furniture");
     }
 
     void OnEnable()
@@ -50,36 +51,50 @@ public class InputMover : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-       
-        if (!isBlocked)
+        float horizontal = moveHorizontal.ReadValue<float>();
+        float vertical = moveVertical.ReadValue<float>();
+        Vector2 moveDirection = new Vector2(horizontal, vertical).normalized;
+        Vector3 movementVector = moveDirection * speed * Time.deltaTime;
+
+        if (isCollidingWithFurniture)
         {
-            float horizontal = moveHorizontal.ReadValue<float>();
-            float vertical = moveVertical.ReadValue<float>();
-            Vector3 movementVector = new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime;
-            transform.position += movementVector;
+            foreach (GameObject furniture in furnitures)
+            {
+                Vector3 furniturePos = furniture.transform.position;
+                Vector3 playerToFurniture = furniturePos - transform.position;
+                Vector3 horizontalDir = Vector3.Project(playerToFurniture, transform.right).normalized;
+                Vector3 verticalDir = Vector3.Project(playerToFurniture, transform.up).normalized;
+                bool isHorizontalBlocked = Vector3.Dot(movementVector, horizontalDir) > 0;
+                bool isVerticalBlocked = Vector3.Dot(movementVector, verticalDir) > 0;
+                bool isFurnitureBlocking = playerToFurniture.sqrMagnitude < 3.5f && (isHorizontalBlocked || isVerticalBlocked);
+                if (isFurnitureBlocking)
+                {
+                    // If colliding with furniture and moving towards it, stop movement
+                    movementVector = Vector3.zero;
+                    break;
+                }
+            }
+
+        }
+        transform.position += movementVector;
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Furniture")
+        {
+            isCollidingWithFurniture = true;
         }
     }
 
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-
-    //     if (other.gameObject.tag == "Furniture")
-    //     {
-
-    //         this.isBlocked = true;
-    //     }
-    // }
-
-    // private void OnCollisionExit2D(Collision2D other)
-    // {
-    //     if (other.gameObject.tag == "Furniture")
-    //     {
-    //         this.isBlocked = false;
-
-    //     }
-    // }
-
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Furniture")
+        {
+            isCollidingWithFurniture = false;
+        }
+    }
 }
-
