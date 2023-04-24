@@ -3,11 +3,11 @@
 המשחק עצמו הוא משחק מחשב המתקיים בבית של הבעלים. השחקן משחק ככלב אשר נמצא בבית עם בעליו.
 מטרת השחקן היא להבריח גנבים שמגיעים לבית, לעשות צרכים בבית ומבלי להתפס על ידי הבעלים, ולגנוב אוכל מהשולחן - לעשות כמה שיותר פעולות מבלי שישמו לב תחת הזמן המוקצב.
 
-קישור לדף הרכיבים: https://github.com/Game-Developmento/clever-dog/blob/main/formal-elements.md
+[קישור לדף הרכיבים](https://github.com/Game-Developmento/clever-dog/blob/main/formal-elements.md)
 
 ## 2D core proccess demonstration of the game
-Food Stealing Dog is a 2D game that demonstrates the core process of the real game. In this game, the player takes on the role of a dog and must steal food without being caught by the owner. If the player manages to steal all the food without being seen, they win.
-*It is important to note that the real game will be a 3D game and will have more missions than this core process.*
+Food Stealing Dog is a 2D game that demonstrates the core process of the real game. In this game, the player takes on the role of a dog and must steal food without being caught by the owner. If the player manages to steal all the food without being seen, they win.  
+*It is important to note that the real game will be a 3D game and will have more missions than this core process.*  
 [Click here to play the game!](https://orihoward.itch.io/)
 
 ## How to Play
