@@ -8,7 +8,7 @@
 ## 2D core proccess demonstration of the game
 Food Stealing Dog is a 2D game that demonstrates the core process of the real game. In this game, the player takes on the role of a dog and must steal food without being caught by the owner. If the player manages to steal all the food without being seen, they win.  
 *It is important to note that the real game will be a 3D game and will have more missions than this core process.*  
-[Click here to play the game!](https://orihoward.itch.io/)
+[Click here to play the game!](https://orihoward.itch.io/clever-dog-2d-demonstration-game)
 
 ## How to Play
 The objective of the game is to steal all the food without being caught by the owner. The player controls the dog and moves around the house to find and steal the food using the WASD keys. Pressing the spacebar will allow the player to steal food when they are close enough to it. If the owner sees the player, the game is over.
